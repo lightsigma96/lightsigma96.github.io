@@ -1,12 +1,377 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>About lightsigma</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>lightsigma96</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: monospace;
+      background-color: #111;
+      color: #f1f1f1;
+      line-height: 1.7;
+      max-height : 200vh
+    }
+
+    #main_container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    #sidebar {
+      width: 280px;
+      flex-shrink: 0;
+      border-right: 1px solid #333;
+      padding: 1.5rem;
+    }
+
+    #content {
+      flex: 1;
+      padding: 1.5rem;
+      max-width: 900px;
+    }
+
+    #rightbar {
+  width: 220px;
+  flex-shrink: 0;
+  border-left: 1px solid #333;
+  padding: 1.5rem;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+}
+
+    h1 {
+      margin-top: 0;
+      text-decoration: underline;
+    }
+
+    a {
+      color: #7aa2ff;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    a:hover {
+      color: #a8c1ff;
+      text-decoration: underline;
+    }
+
+    ul {
+      line-height: 1.8;
+    }
+
+    .section {
+      margin-top: 2rem;
+    }
+
+    #rightbar ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    #rightbar li {
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+
+      #main_container {
+        flex-direction: column;
+      }
+
+      #sidebar,
+      #content {
+        width: 100%;
+      }
+
+      #sidebar {
+        border-right: none;
+        border-bottom: 1px solid #333;
+      }
+
+      #rightbar {
+        display: none;
+      }
+    }
+
+  </style>
 </head>
 
 <body>
-    <h1>HI</h1>
+
+  <div id="main_container">
+
+    <div id="sidebar">
+
+      <h1>lightsigma96</h1>
+
+      <h3>
+        "Just Curious About Computer Science"
+      </h3>
+
+      <div class="section">
+
+        <h3>Links</h3>
+
+        <p>
+          <a href="https://github.com/lightsigma96" target="_blank">
+            GitHub
+          </a>
+
+          <br><br>
+
+          <a href="https://lightsigma96.github.io/blogs" target="_blank">
+            Blogs
+          </a>
+
+          <br><br>
+
+          <a href="#">
+            Some Personal Observations (under development)
+          </a>
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- MAIN CONTENT -->
+
+    <div id="content">
+
+      <div class="section" id="about">
+
+        <h1>About Me</h1>
+
+        <p>
+          Greetings, I am Yash Jadhav.
+        </p>
+
+        <p>
+          I am currently
+          <span id="age"></span>
+          years old and interested in different domains within computer science.
+          I especially enjoy lower-level systems, infrastructure engineering,
+          and understanding how things work internally.
+        </p>
+
+      </div>
+
+      <div class="section" id="interests">
+
+        <h2>Here are a few things I am currently interested in</h2>
+
+        <ul>
+          <li>
+            Systems programming and low-level engineering related to C, C++,
+            Linux internals, networking and memory management.
+          </li>
+
+          <li>
+            Machine Learning, though I have not worked on it seriously recently.
+            Currently most of my focus is on systems.
+          </li>
+
+          <li>
+            Neovim. My current config is mostly vibecoded, but I plan to
+            properly explore the editor and ecosystem later.
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="section" id="projects">
+
+        <h2>Projects Created Till Now</h2>
+
+        <ul>
+
+          <li>
+            Implemented a HTTP Server from Scratch in C
+          </li>
+
+          <li>
+            Implemented a SQL Database from Scratch in C++
+          </li>
+
+          <li>
+            Implemented research papers including
+            Attention Is All You Need and DDPM
+            (Denoising Diffusion Probabilistic Models)
+          </li>
+
+          <li>
+            Created a Custom CNN from Scratch
+          </li>
+
+          <li>
+            Built a RAG system for answering questions on PDFs
+          </li>
+
+          <li>
+            Smaller projects including:
+            password manager,
+            fine-tuning experiments,
+            CNotes,
+            RL experiments for Geometry Dash,
+            and a browser extension that summarizes selected text.
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div class="section" id="current">
+
+        <h2>What I Am Doing Currently and Planning To Do</h2>
+
+        <ul>
+
+          <li>
+            Creating a multiplayer programming platform
+          </li>
+
+          <li>
+            Exploring Redis internals
+          </li>
+
+          <li>
+            Data Structures and Algorithms
+          </li>
+
+          <li>
+            Planning to read OSTEP
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div class="section" id="blogs">
+
+        <h2>Blogs</h2>
+
+        <ul>
+
+          <li>
+            How I Created My Own SQL Database
+          </li>
+
+          <li>
+            How I Created My Own HTTP Server
+          </li>
+
+          <li>
+            Implementing Linear Regression from Scratch
+          </li>
+
+          <li>
+            Making an RL Agent Play Geometry Dash from Scratch
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div class="section" id="books">
+
+        <h2>Books That I Am Reading or Have Read</h2>
+
+        <ul>
+
+          <li>
+            Introduction to Algorithms (4th Edition)
+            — currently reading
+          </li>
+
+          <li>
+            Hands-On Machine Learning with
+            Scikit-Learn and TensorFlow
+            — completed
+          </li>
+
+          <li>
+            Operating Systems: Three Easy Pieces
+            — next read
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT NAVIGATION -->
+
+    <div id="rightbar">
+
+      <h3>Navigate</h3>
+
+      <ul>
+
+        <li>
+          <a href="#about">About</a>
+        </li>
+
+        <li>
+          <a href="#interests">Interests</a>
+        </li>
+
+        <li>
+          <a href="#projects">Projects</a>
+        </li>
+
+        <li>
+          <a href="#current">Current Work</a>
+        </li>
+
+        <li>
+          <a href="#blogs">Blogs</a>
+        </li>
+
+        <li>
+          <a href="#books">Books</a>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    const ageTag = document.getElementById("age");
+
+    const birthDate = new Date("2006-11-21");
+    const now = new Date();
+
+    let years = now.getFullYear() - birthDate.getFullYear();
+
+    let months = now.getMonth() - birthDate.getMonth();
+
+    if (months < 0) {
+      years--;
+    }
+
+    ageTag.textContent = years;
+
+  </script>
+
 </body>
 
 </html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Blogs | lightsigma96</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: monospace;
+      background-color: #111;
+      color: #f1f1f1;
+      line-height: 1.7;
+      padding: 2rem;
+    }
+
+    h1 {
+      margin-top: 0;
+      text-decoration: underline;
+    }
+
+    a {
+      color: #7aa2ff;
+      text-decoration: none;
+      transition: 0.2s;
+      font-size : 1.3em;
+    }
+
+    a:hover {
+      color: #a8c1ff;
+      text-decoration: underline;
+    }
+
+    #container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    #blog_grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .blog_card {
+      border: 1px solid #333;
+      padding: 1.5rem;
+      border-radius: 10px;
+      background-color: #181818;
+      transition: 0.2s;
+    }
+
+    .blog_card:hover {
+      border-color: #666;
+      transform: translateY(-3px);
+    }
+
+    .blog_title {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .links {
+      margin-top: 1rem;
+    }
+
+    .links a {
+      display: inline-block;
+      margin-right: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .description {
+      color: #cfcfcf;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div id="container">
+
+    <h1>Blogs</h1>
+
+    <p>
+      Collection of blogs and technical writeups across systems,
+      machine learning and low-level programming.
+    </p>
+
+    <div id="blog_grid">
+
+      <div class="blog_card">
+
+        <div class="blog_title">
+          How I Created My Own SQL Database
+        </div>
+
+        <div class="links">
+
+          <a href="#" target="_blank">
+            Dev.to
+          </a>
+          <br>
+          <!-- <a href="#" target="_blank"> -->
+          <!--   Medium -->
+          <!-- </a> -->
+
+        </div>
+
+      </div>
+
+      <!-- BLOG CARD -->
+
+      <div class="blog_card">
+
+        <div class="blog_title">
+          Building a HTTP Server from Scratch in C
+        </div>
+
+        <div class="links">
+
+          <!-- <a href="#" target="_blank"> -->
+          <!--   Dev.to -->
+          <!-- </a> -->
+          <br>
+          <a href="#" target="_blank">
+            Medium
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- BLOG CARD -->
+
+      <div class="blog_card">
+
+        <div class="blog_title">
+          Implementing Linear Regression from Scratch
+        </div>
+
+        <div class="links">
+
+          <!-- <a href="#" target="_blank"> -->
+          <!--   Dev.to -->
+          <!-- </a> -->
+          <br> 
+          <a href="#" target="_blank">
+            Medium
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- BLOG CARD -->
+
+      <div class="blog_card">
+
+        <div class="blog_title">
+          Making an RL Agent Play Geometry Dash
+        </div>
+
+        <div class="links">
+
+          <!-- <a href="#" target="_blank"> -->
+          <!--   Dev.to -->
+          <!-- </a> -->
+  <br>
+          <a href="#" target="_blank">
+            Medium
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>
