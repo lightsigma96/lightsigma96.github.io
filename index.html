@@ -20,7 +20,7 @@
     body {
       margin: 0;
       font-family: monospace;
-      background-color: #111;
+      background-color: black;
       color: #f1f1f1;
       line-height: 1.7;
       max-height : 200vh
@@ -41,18 +41,18 @@
     #content {
       flex: 1;
       padding: 1.5rem;
-      max-width: 900px;
+      max-width: 110em;
     }
 
     #rightbar {
-  width: 220px;
-  flex-shrink: 0;
-  border-left: 1px solid #333;
-  padding: 1.5rem;
-  position: sticky;
-  top: 0;
-  align-self: flex-start;
-}
+	  width: 220px;
+	  flex-shrink: 0;
+	  border-left: 1px solid #333;
+	  padding: 1.5rem;
+	  position: sticky;
+	  top: 0;
+	  align-self: flex-start;
+	}
 
     h1 {
       margin-top: 0;
@@ -73,6 +73,9 @@
     ul {
       line-height: 1.8;
     }
+    li{
+	font-size : 1.4em;
+    }
 
     .section {
       margin-top: 2rem;
@@ -86,6 +89,13 @@
     #rightbar li {
       margin-bottom: 1rem;
     }
+    .titles {
+	    font-size : 3em;
+    }
+    #intro {
+	    font-size : 1.5em;
+    }
+    
 
     @media (max-width: 768px) {
 
@@ -127,9 +137,20 @@
 
         <h3>Links</h3>
 
-        <p>
+        <p id = "other_pages">
+          <a href="mailto:yash.jadhav8008@gmail.com">Email</a>
+	  <br><br>
+
           <a href="https://github.com/lightsigma96" target="_blank">
-            GitHub
+            GitHub,
+          </a>
+	  
+          <a href="https://x.com/yash_jadhav2106" target="_blank">
+            X,
+          </a>
+
+          <a href="https://www.linkedin.com/in/yash-jadhav-ab4872248/" target="_blank">
+            Linkdin
           </a>
 
           <br><br>
@@ -155,25 +176,22 @@
 
       <div class="section" id="about">
 
-        <h1>About Me</h1>
+        <p class = "titles">About Me</p>
 
-        <p>
+        <p id = "intro">
           Greetings, I am Yash Jadhav.
-        </p>
-
-        <p>
           I am currently
           <span id="age"></span>
-          years old and interested in different domains within computer science.
-          I especially enjoy lower-level systems, infrastructure engineering,
-          and understanding how things work internally.
+          and interested in various domains within computer science.
+          I especially enjoy lower-level systems, and understanding how things work internally.
+	  Really confused what to do now, help out !!
         </p>
 
       </div>
 
       <div class="section" id="interests">
 
-        <h2>Here are a few things I am currently interested in</h2>
+        <p class = "titles">Here are a few things I am currently interested in</p>
 
         <ul>
           <li>
@@ -187,16 +205,14 @@
           </li>
 
           <li>
-            Neovim. My current config is mostly vibecoded, but I plan to
-            properly explore the editor and ecosystem later.
-          </li>
+            Neovim, my current config is mostly vibecoded, but will soon do it properly.</li>
         </ul>
 
       </div>
 
       <div class="section" id="projects">
 
-        <h2>Projects Created Till Now</h2>
+        <p class = "titles">Projects Created Till Now</p>
 
         <ul>
 
@@ -206,6 +222,9 @@
 
           <li>
             Implemented a SQL Database from Scratch in C++
+          </li>
+	  <li>
+            Recall, an terminal based AI mystery game where your NPCs doesnt have fixed script instead react differently based on how you ask, uncover the killer.
           </li>
 
           <li>
@@ -237,24 +256,20 @@
 
       <div class="section" id="current">
 
-        <h2>What I Am Doing Currently and Planning To Do</h2>
+        <p class = "titles">What I Am Doing Currently and Planning To Do</p>
 
         <ul>
 
           <li>
-            Creating a multiplayer programming platform
+            Exploring Valkey internals and KDE okular
           </li>
 
           <li>
-            Exploring Redis internals
+            Learning Operating Systems and Arch
           </li>
 
           <li>
-            Data Structures and Algorithms
-          </li>
-
-          <li>
-            Planning to read OSTEP
+            Data Structures and Algorithms (not currently on Leetcode or Codeforces grind)
           </li>
 
         </ul>
@@ -263,7 +278,7 @@
 
       <div class="section" id="blogs">
 
-        <h2>Blogs</h2>
+        <p class = "titles">Blogs</p>
 
         <ul>
 
@@ -289,7 +304,7 @@
 
       <div class="section" id="books">
 
-        <h2>Books That I Am Reading or Have Read</h2>
+        <p class = "titles">Books That I Am Reading or Have Read</p>
 
         <ul>
 
