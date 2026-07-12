@@ -20,10 +20,10 @@
     body {
       margin: 0;
       font-family: monospace;
-      background-color: black;
+    background: url("./doomguy.jpeg") center/cover no-repeat fixed;
       color: #f1f1f1;
       line-height: 1.7;
-      max-height : 200vh
+      max-height : 200vh;
     }
 
     #main_container {
@@ -60,13 +60,13 @@
     }
 
     a {
-      color: #7aa2ff;
+      color: white;
       text-decoration: none;
       transition: 0.2s;
     }
 
     a:hover {
-      color: #a8c1ff;
+      color: white;
       text-decoration: underline;
     }
 
@@ -101,6 +101,7 @@
 
       #main_container {
         flex-direction: column;
+            z-index : 1;
       }
 
       #sidebar,
@@ -117,13 +118,40 @@
         display: none;
       }
     }
+    #glass {
+        position : absolute;
+        height : 192vh;
+        width : 99.2vw;
+        z-index : -1;
+background: rgba(0, 0, 0, 0.81);
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+    }
+
+    #blob1{
+        height: 10vh;
+        width: 10vw;
+        border-radius : 100%;
+        position: absolute;
+        left : 2em;
+        top : 5em;
+        background-color: #141414;
+
+        box-shadow : 0px 0px 10px #141414;
+        z-index: -1;
+    }
+    
 
   </style>
 </head>
 
 <body>
 
-  <div id="main_container">
+    <div id="blob1"></div>
+    <div id="glass"></div>
+
+    <div id="main_container">
 
     <div id="sidebar">
 
@@ -370,7 +398,6 @@
     </div>
 
   </div>
-
   <script>
 
     const ageTag = document.getElementById("age");
