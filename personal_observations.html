@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs | lightsigma96</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 30px;
+            background: #000;
+            color: white;
+            font-family: monospace;
+        }
+
+        #observations {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .card {
+            padding: 1rem 1.5rem;
+
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
+
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 20px;
+
+            box-shadow:
+                0 8px 32px rgba(0,0,0,.1),
+                inset 0 1px 0 rgba(255,255,255,.5),
+                inset 0 -1px 0 rgba(255,255,255,.1);
+        }
+
+        .card > :first-child {
+            margin-top: 0;
+        }
+
+        .card > :last-child {
+            margin-bottom: 0;
+        }
+
+        h1, h2, h3, h4 {
+            color: white;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        ul,
+        ol {
+            padding-left: 1.5rem;
+        }
+
+        code {
+            background: rgba(255,255,255,.1);
+            padding: .15rem .35rem;
+            border-radius: 5px;
+        }
+
+        pre {
+            background: rgba(255,255,255,.1);
+            padding: 1rem;
+            border-radius: 12px;
+            overflow-x: auto;
+        }
+
+        pre code {
+            background: transparent;
+            padding: 0;
+        }
+
+        a {
+            color: #7ab8ff;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="observations"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<script>
+const docs = [
+    "debugging_cluster.md",
+    "personal_lessons.md"
+];
+
+const container = document.getElementById("observations");
+
+(async () => {
+    for (const file of docs) {
+        const response = await fetch(`personal_observations/${file}`);
+        const markdown = await response.text();
+
+        const card = document.createElement("article");
+        card.className = "card";
+        card.innerHTML = marked.parse(markdown);
+
+        container.appendChild(card);
+    }
+})();
+</script>
+
+</body>
+</html>
