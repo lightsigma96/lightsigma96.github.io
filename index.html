@@ -10,7 +10,20 @@
 :root{--black:#090a08;--panel:#171914;--white:#d8d8c8;--grey:#858878;--green:#83a34b;--blood:#b52b24;--line:#45483b;--font:"Doom","Doom 2016","DooM",monospace;--body-font:"Courier New",monospace}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:1rem}
-body{margin:0;background:#090a08;color:var(--white);font-family:var(--body-font);font-size:15px;line-height:1.55;background-image:linear-gradient(#ffffff05 1px,transparent 1px);background-size:100% 4px}
+body {
+    margin: 0;
+    background: #090a08;
+    color: var(--white);
+    font-family: var(--body-font);
+    font-size: 15px;
+    line-height: 1.55;
+
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 a{color:var(--green);text-decoration:none}
 a:hover{color:#e8edce;background:#34392b;text-decoration:none}
 a:focus-visible{outline:2px solid var(--green);outline-offset:3px}
