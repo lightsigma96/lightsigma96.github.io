@@ -1,525 +1,61 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>lightsigma96</title>
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0909">
+<meta name="description" content="Yash Jadhav — systems programming, database internals, distributed systems, and open source.">
+<title>lightsigma96 // Systems &amp; Databases</title>
 <style>
-
-  * {
-    box-sizing: border-box;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    margin: 0;
-    font-family: monospace;
-    background: url("./doomguy.jpeg") center / cover no-repeat fixed;
-    color: #f1f1f1;
-    line-height: 1.7;
-    min-height: 100vh;
-  }
-
-  #main_container {
-    display: flex;
-    min-height: 100vh;
-    width: 100%;
-  }
-
-  #sidebar {
-    width: 280px;
-    flex-shrink: 0;
-    border-right: 1px solid #333;
-    padding: 1.5rem;
-  }
-
-  #content {
-    flex: 1;
-    padding: 1.5rem;
-    max-width: 110em;
-    min-width: 0;
-  }
-
-  #rightbar {
-    width: 220px;
-    flex-shrink: 0;
-    border-left: 1px solid #333;
-    padding: 1.5rem;
-    position: sticky;
-    top: 0;
-    align-self: flex-start;
-    height: 100vh;
-    overflow-y: auto;
-  }
-
-  h1 {
-    margin-top: 0;
-    text-decoration: underline;
-  }
-
-  a {
-    color: white;
-    text-decoration: none;
-    transition: 0.2s;
-  }
-
-  a:hover {
-    color: white;
-    text-decoration: underline;
-  }
-
-  ul {
-    line-height: 1.8;
-  }
-
-  li {
-    font-size: 1.4em;
-  }
-
-  .section {
-    margin-top: 2rem;
-  }
-
-  #rightbar ul {
-    list-style-type: none;
-    padding-left: 0;
-  }
-
-  #rightbar li {
-    margin-bottom: 1rem;
-  }
-
-  .titles {
-    font-size: 3em;
-  }
-
-  #intro {
-    font-size: 1.5em;
-  }
-
-  /*
-   * Glass overlay
-   *
-   * The old height: 192vh caused the page to have a
-   * large empty area after the actual content.
-   *
-   * Make it cover the viewport instead.
-   */
-
-  #glass {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-
-    background: rgba(0, 0, 0, 0.81);
-
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-
-    pointer-events: none;
-  }
-
-  #blob1 {
-    height: 10vh;
-    width: 10vw;
-    border-radius: 100%;
-
-    position: absolute;
-    left: 2em;
-    top: 5em;
-
-    background-color: #141414;
-
-    box-shadow: 0 0 10px #141414;
-
-    z-index: -1;
-  }
-
-
-  /* -------------------------
-     Tablet
-     ------------------------- */
-
-  @media (max-width: 1100px) {
-
-    #sidebar {
-      width: 230px;
-    }
-
-    #rightbar {
-      width: 180px;
-    }
-
-    #content {
-      padding: 1.5rem;
-    }
-
-    .titles {
-      font-size: 2.5em;
-    }
-
-  }
-
-
-  /* -------------------------
-     Mobile
-     ------------------------- */
-
-  @media (max-width: 768px) {
-
-    #main_container {
-      flex-direction: column;
-      width: 100%;
-    }
-
-    #sidebar,
-    #content {
-      width: 100%;
-      max-width: none;
-    }
-
-    #sidebar {
-      border-right: none;
-      border-bottom: 1px solid #333;
-    }
-
-    #rightbar {
-      display: none;
-    }
-
-    .titles {
-      font-size: 2em;
-    }
-
-    #intro {
-      font-size: 1.2em;
-    }
-
-    li {
-      font-size: 1.1em;
-    }
-
-  }
-
-
-  /* -------------------------
-     Small phones
-     ------------------------- */
-
-  @media (max-width: 480px) {
-
-    #sidebar,
-    #content {
-      padding: 1rem;
-    }
-
-    .titles {
-      font-size: 1.7em;
-    }
-
-    #intro {
-      font-size: 1.05em;
-    }
-
-    li {
-      font-size: 1em;
-    }
-
-    #blob1 {
-      width: 25vw;
-      height: 25vw;
-    }
-
-  }
-
+:root{color-scheme:dark;--bg:#0b0909;--panel:rgba(18,14,14,.94);--raised:#1d1514;--line:#49312d;--line2:#754239;--red:#ee4638;--orange:#ff9c4a;--paper:#f2e9e1;--muted:#b2a29a;--dim:#786a65;--green:#b2c58b;--mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:5rem}body{margin:0;min-height:100vh;background:var(--bg);color:var(--paper);font-family:var(--mono);line-height:1.65;overflow-wrap:break-word}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(8,6,6,.94),rgba(8,6,6,.78) 55%,rgba(8,6,6,.9)),url("./doomguy.jpeg") center 24%/cover no-repeat}
+body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:repeating-linear-gradient(to bottom,rgba(255,255,255,.018) 0,rgba(255,255,255,.018) 1px,transparent 1px,transparent 4px);opacity:.28}
+a{color:var(--orange);text-decoration:none}a:hover{color:#ffd0a2}a:focus-visible{outline:2px solid var(--orange);outline-offset:4px}.shell{width:min(1180px,calc(100% - 48px));margin:auto}
+header{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;min-height:76px;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:.8rem;color:var(--paper);font-size:.95rem;font-weight:800;letter-spacing:.08em;white-space:nowrap}.mark{display:grid;place-items:center;width:34px;height:34px;border:1px solid var(--red);background:#ee46381a;color:var(--red);font-size:.77rem;box-shadow:3px 3px #ee463826}
+nav{display:flex;flex-wrap:wrap;gap:1.3rem}nav a{color:var(--muted);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase}nav a:hover{color:var(--orange)}
+.status{display:flex;flex-wrap:wrap;gap:.75rem 1.8rem;padding:.75rem 0;color:var(--dim);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid #49312db3}.status span{display:flex;align-items:center;gap:.55rem}.light{width:7px;height:7px;background:var(--green);box-shadow:0 0 8px #b2c58b73}.light.red{background:var(--red);box-shadow:0 0 8px #ee463866}
+.hero{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(270px,.65fr);gap:2rem;align-items:center;padding:clamp(3rem,8vw,6.8rem) 0 4.5rem}.eyebrow,.index{display:flex;align-items:center;gap:.7rem;color:var(--red);font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.eyebrow:before{content:"";width:26px;height:2px;background:var(--red)}
+h1{margin:1.15rem 0 1.3rem;font-size:clamp(3.2rem,8.3vw,7rem);line-height:.94;letter-spacing:-.085em;text-transform:uppercase}h1 span{display:block;color:var(--red)}.intro{max-width:680px;color:#c7b9b1;font-size:clamp(1rem,1.45vw,1.16rem)}.intro strong{color:var(--paper)}
+.actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}.btn{display:inline-flex;align-items:center;gap:.7rem;min-height:46px;padding:.75rem 1rem;border:1px solid var(--line2);background:#140e0e;color:var(--paper);font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;transition:.18s}.btn:after{content:"↗";color:var(--orange)}.btn.primary{background:var(--red);border-color:var(--red);color:#fff7f0}.btn.primary:after{color:#fff7f0}.btn:hover{transform:translateY(-2px);border-color:var(--orange)}
+.personnel{position:relative;padding:1rem;border:1px solid var(--line2);background:linear-gradient(145deg,rgba(32,22,21,.97),rgba(13,10,10,.98));box-shadow:9px 9px #0003}.personnel:before{content:"";position:absolute;top:-1px;left:-1px;width:22px;height:22px;border-top:3px solid var(--red);border-left:3px solid var(--red)}.smallhead,.foothead{display:flex;justify-content:space-between;gap:.75rem;color:var(--muted);font-size:.63rem;letter-spacing:.1em;text-transform:uppercase}.personnel img{display:block;width:100%;height:210px;object-fit:cover;object-position:center 27%;margin:1rem 0;border:1px solid var(--line);filter:contrast(1.1) saturate(.65);background:#171010}.personnel h2{margin:.2rem 0;font-size:1.35rem;letter-spacing:-.04em;text-transform:uppercase}.sub{margin:0 0 1rem;color:var(--muted);font-size:.73rem}.readout{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}.readout div{padding:.8rem .6rem .55rem 0}.readout div+div{padding-left:.8rem;border-left:1px solid var(--line)}.readout small{display:block;color:var(--dim);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase}.readout b{display:block;margin-top:.2rem;color:var(--orange);font-size:.82rem}.foothead{margin-top:1rem}.green{color:var(--green)}
+.divider{display:flex;align-items:center;gap:1rem;margin-bottom:1.4rem;color:var(--dim);font-size:.63rem;letter-spacing:.15em;text-transform:uppercase}.divider:after{content:"";height:1px;flex:1;background:var(--line)}section{padding:1.5rem 0 4rem}.heading{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;margin-bottom:1.5rem}.heading h2{margin:.4rem 0 0;font-size:clamp(1.7rem,4vw,2.8rem);line-height:1.1;letter-spacing:-.06em;text-transform:uppercase}.note{max-width:370px;margin:0;color:var(--muted);font-size:.8rem}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.project{position:relative;display:flex;flex-direction:column;min-height:275px;padding:1.25rem;border:1px solid var(--line);background:var(--panel);transition:.18s}.project:hover{transform:translateY(-3px);border-color:var(--line2);background:var(--raised)}.project:before{content:"";position:absolute;top:-1px;left:1.25rem;width:42px;height:2px;background:var(--red)}.ptop{display:flex;justify-content:space-between;gap:.75rem;color:var(--dim);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase}.num{color:var(--red);font-weight:800}.project h3{margin:1.1rem 0 .65rem;font-size:1.25rem;line-height:1.2;letter-spacing:-.04em;text-transform:uppercase}.project p{margin:0;color:var(--muted);font-size:.81rem}.tags{display:flex;flex-wrap:wrap;gap:.45rem;margin:1.1rem 0 1.3rem}.tag{padding:.2rem .45rem;border:1px solid #46312e;color:#d0bcb2;font-size:.6rem}.plink{margin-top:auto;padding-top:.85rem;border-top:1px solid #49312db3;font-size:.72rem;font-weight:700;text-transform:uppercase}.plink span{color:var(--red)}
+.ops{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.op{padding:1.2rem;border-left:2px solid var(--red);background:#120e0ee0}.op small{color:var(--dim);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase}.op h3{margin:.55rem 0;font-size:1rem;text-transform:uppercase}.op p{margin:0;color:var(--muted);font-size:.78rem}.op a{display:inline-block;margin-top:.85rem;font-size:.74rem}
+.writings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}.writing{display:flex;justify-content:space-between;gap:1rem;padding:1rem 1.1rem;border:1px solid var(--line);background:#0f0b0be6;color:var(--paper);font-size:.8rem}.writing:hover{border-color:var(--line2);color:var(--orange)}.writing span{color:var(--red)}
+.about{display:grid;grid-template-columns:.8fr 1.2fr;border:1px solid var(--line);background:var(--panel)}.about-label{padding:1.4rem;border-right:1px solid var(--line);color:var(--red);font-size:.68rem;letter-spacing:.13em;text-transform:uppercase}.about-copy{padding:1.4rem;color:var(--muted);font-size:.84rem}.about-copy p{margin:0}.about-copy p+p{margin-top:.8rem}
+footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.75rem;padding:1.5rem 0 2.5rem;border-top:1px solid var(--line);color:var(--dim);font-size:.63rem;letter-spacing:.08em;text-transform:uppercase}footer a{color:var(--muted)}.redtext{color:var(--red)}
+@media(max-width:900px){.hero{grid-template-columns:minmax(0,1.15fr) minmax(230px,.85fr);gap:1.25rem}.grid,.ops{grid-template-columns:repeat(2,minmax(0,1fr))}nav{gap:.8rem}}
+@media(max-width:680px){.shell{width:calc(100% - 30px)}header{align-items:flex-start;flex-direction:column;justify-content:center;gap:.8rem;padding:1rem 0}nav{gap:.55rem 1rem}nav a{font-size:.68rem}.status{font-size:.59rem;gap:.5rem 1rem}.hero{grid-template-columns:1fr;padding:3.6rem 0 2.8rem}h1{font-size:clamp(3rem,15vw,5rem)}.personnel{max-width:430px;width:100%}section{padding-bottom:2.8rem}.heading{align-items:flex-start;flex-direction:column}.grid,.ops,.writings{grid-template-columns:1fr}.project{min-height:0}.about{grid-template-columns:1fr}.about-label{border-right:0;border-bottom:1px solid var(--line);padding-bottom:.9rem}.about-copy{padding-top:1rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition-duration:.01ms!important}}
 </style>
 </head>
-
-<body>
-
-    <div id="blob1"></div>
-    <div id="glass"></div>
-
-    <div id="main_container">
-
-    <div id="sidebar">
-
-      <h1>lightsigma96</h1>
-
-      <h3>
-        "Just Curious About Computer Science"
-      </h3>
-
-      <div class="section">
-
-        <h3>Links</h3>
-
-        <p id = "other_pages">
-          <a href="mailto:yash.jadhav8008@gmail.com">Email</a>
-	  <br><br>
-
-          <a href="https://github.com/lightsigma96" target="_blank">
-            GitHub,
-          </a>
-	  
-          <a href="https://x.com/yash_jadhav2106" target="_blank">
-            X,
-          </a>
-
-          <a href="https://www.linkedin.com/in/yash-jadhav-ab4872248/" target="_blank">
-            Linkdin
-          </a>
-
-          <br><br>
-
-          <a href="https://lightsigma96.github.io/blogs" target="_blank">
-            Blogs
-          </a>
-
-          <br><br>
-
-          <a href="https://lightsigma96.github.io/personal_observations">
-            Some Personal Observations 
-          </a>
-        </p>
-
-      </div>
-
-    </div>
-
-    <!-- MAIN CONTENT -->
-
-    <div id="content">
-
-      <div class="section" id="about">
-
-        <p class = "titles">About Me</p>
-
-        <p id = "intro">
-          Greetings, I am Yash Jadhav.
-          I am currently
-          <span id="age"></span>
-          and interested in various domains within computer science.
-          I especially enjoy lower-level systems, and understanding how things work internally.
-	  Really confused what to do now, help out !!
-        </p>
-
-      </div>
-
-      <div class="section" id="interests">
-
-        <p class = "titles">Here are a few things I am currently interested in</p>
-
-        <ul>
-          <li>
-            Systems programming and low-level engineering related to C, C++,
-            Linux internals, networking and memory management.
-            Soon starting with Go and infrastructure.
-          </li>
-
-          <li>
-            Machine Learning, though I have not worked on it seriously recently.
-            Currently most of my focus is on systems.
-          </li>
-
-          <li>
-            Neovim, my current config is mostly vibecoded, but will soon do it properly.</li>
-        </ul>
-
-      </div>
-
-      <div class="section" id="projects">
-
-        <p class = "titles">Projects Created Till Now</p>
-
-        <ul>
-
-          <li>
-            Implemented a HTTP Server from Scratch in C
-          </li>
-
-          <li>
-            Implemented a SQL Database from Scratch in C++
-          </li>
-	  <li>
-            Recall, an terminal based AI mystery game where your NPCs doesnt have fixed script instead react differently based on how you ask, uncover the killer.
-          </li>
-
-          <li>
-            Implemented research papers including
-            Attention Is All You Need and DDPM
-            (Denoising Diffusion Probabilistic Models)
-          </li>
-
-          <li>
-            Created a Custom CNN from Scratch
-          </li>
-
-          <li>
-            Built a RAG system for answering questions on PDFs
-          </li>
-
-          <li>
-            Smaller projects including:
-            password manager,
-            fine-tuning experiments,
-            CNotes,
-            RL experiments for Geometry Dash,
-            and a browser extension that summarizes selected text.
-          </li>
-
-        </ul>
-
-      </div>
-
-      <div class="section" id="current">
-
-        <p class = "titles">What I Am Doing Currently and Planning To Do</p>
-
-        <ul>
-
-          <li>
-            Exploring Valkey internals
-          </li>
-
-          <li>
-            Learning Operating Systems and Arch
-          </li>
-
-          <li>
-            Data Structures and Algorithms (not currently on Leetcode or Codeforces grind)
-          </li>
-
-        </ul>
-
-      </div>
-
-      <div class="section" id="blogs">
-
-        <p class = "titles">Blogs</p>
-
-        <ul>
-
-          <li>
-            How I Created My Own SQL Database
-          </li>
-
-          <li>
-            How I Created My Own HTTP Server
-          </li>
-
-          <li>
-            Implementing Linear Regression from Scratch
-          </li>
-
-          <li>
-            Making an RL Agent Play Geometry Dash from Scratch
-          </li>
-          <li>
-            Recall - An AI Mystery Game built with Cognee and Ollama
-          </li>
-        <li>                        
-            Implementing Multi-Level Feedback Queue in xv6
-        </li>
-
-        </ul>
-
-      </div>
-
-      <div class="section" id="books">
-
-        <p class = "titles">Books That I Am Reading or Have Read</p>
-
-        <ul>
-
-          <li>
-            Introduction to Algorithms (4th Edition)
-            — currently reading
-          </li>
-
-          <li>
-            Hands-On Machine Learning with
-            Scikit-Learn and TensorFlow
-            — completed
-          </li>
-
-          <li>
-            Operating Systems: Three Easy Pieces
-            — currently reading
-          </li>
-
-        </ul>
-
-      </div>
-
-    </div>
-
-    <!-- RIGHT NAVIGATION -->
-
-    <div id="rightbar">
-
-      <h3>Navigate</h3>
-
-      <ul>
-
-        <li>
-          <a href="#about">About</a>
-        </li>
-
-        <li>
-          <a href="#interests">Interests</a>
-        </li>
-
-        <li>
-          <a href="#projects">Projects</a>
-        </li>
-
-        <li>
-          <a href="#current">Current Work</a>
-        </li>
-
-        <li>
-          <a href="#blogs">Blogs</a>
-        </li>
-
-        <li>
-          <a href="#books">Books</a>
-        </li>
-
-      </ul>
-
-    </div>
-
-  </div>
-  <script>
-
-    const ageTag = document.getElementById("age");
-
-    const birthDate = new Date("2006-11-21");
-    const now = new Date();
-
-    let years = now.getFullYear() - birthDate.getFullYear();
-
-    let months = now.getMonth() - birthDate.getMonth();
-
-    if (months < 0) {
-      years--;
-    }
-
-    ageTag.textContent = years;
-
-  </script>
-
-</body>
-
-</html>
+<body><div class="shell">
+<header><a class="brand" href="#top"><span class="mark">LS</span><span>LIGHTSIGMA<span class="redtext">96</span></span></a><nav aria-label="Main navigation"><a href="#projects">Builds</a><a href="#operations">Current ops</a><a href="#writing">Field notes</a><a href="https://github.com/lightsigma96" target="_blank" rel="noopener noreferrer">GitHub ↗</a></nav></header>
+<div class="status"><span><i class="light"></i> Systems online</span><span><i class="light red"></i> Always debugging</span><span>UAC PERSONNEL FILE // 96-YSJ</span></div>
+<main id="top">
+<section class="hero"><div><div class="eyebrow">Curiosity is the primary weapon</div><h1>Yash<br><span>Jadhav.</span></h1><p class="intro">I build things to understand how they work <strong>under the hood</strong> — from database storage engines and network servers to distributed systems. Interested in systems programming, open source, and the machinery behind software.</p><div class="actions"><a class="btn primary" href="#projects">Inspect my builds</a><a class="btn" href="https://github.com/lightsigma96" target="_blank" rel="noopener noreferrer">Open GitHub</a></div></div>
+<aside class="personnel"><div class="smallhead"><span>UAC / Personnel</span><span>File 96-YSJ</span></div><img src="./doomguy.jpeg" alt="Doom-inspired personnel artwork"><h2>Systems in progress</h2><p class="sub">Student · Builder · Open-source contributor</p><div class="readout"><div><small>Primary sector</small><b>Databases</b></div><div><small>Loadout</small><b>C / C++ / Go</b></div></div><div class="foothead"><span>Current status</span><span class="green">BUILDING</span></div></aside></section>
+<div class="divider">Mission log // 001 — 004</div>
+<section id="projects"><div class="heading"><div><div class="index">01 / Selected builds</div><h2>Built from scratch.<br>Learned the hard way.</h2></div><p class="note">Projects that made me deal with the internals instead of hiding behind an abstraction.</p></div><div class="grid">
+<article class="project"><div class="ptop"><span class="num">Build 01</span><span>Active project</span></div><h3>A SQL database</h3><p>A C++ database project with page storage, a buffer pool, heap access, B+ tree indexes, catalog management, query parsing and execution.</p><div class="tags"><span class="tag">C++</span><span class="tag">Storage engine</span><span class="tag">B+ tree</span></div><a class="plink" href="https://github.com/lightsigma96/db_scratch" target="_blank" rel="noopener noreferrer">Inspect repository <span>↗</span></a></article>
+<article class="project"><div class="ptop"><span class="num">Build 02</span><span>In progress</span></div><h3>The distributed stack</h3><p>Go experiments around cluster nodes, connection handling, heartbeat communication and Kafka-backed work distribution.</p><div class="tags"><span class="tag">Go</span><span class="tag">Kafka</span><span class="tag">Networking</span></div><a class="plink" href="https://github.com/lightsigma96/the_distributed_stack" target="_blank" rel="noopener noreferrer">Inspect repository <span>↗</span></a></article>
+<article class="project"><div class="ptop"><span class="num">Build 03</span><span>Research</span></div><h3>Paper implementations</h3><p>Implementations and experiments based on machine-learning papers, including Attention Is All You Need and DDPM.</p><div class="tags"><span class="tag">Python</span><span class="tag">Deep learning</span><span class="tag">Research</span></div><a class="plink" href="https://github.com/lightsigma96/research_paper" target="_blank" rel="noopener noreferrer">Inspect repository <span>↗</span></a></article>
+</div></section>
+<section id="operations"><div class="heading"><div><div class="index">02 / Current operations</div><h2>What I'm digging into</h2></div><p class="note">Following the path from source code to actual runtime behaviour.</p></div><div class="ops">
+<article class="op"><small>Target / 01</small><h3>Valkey internals</h3><p>Exploring cluster behaviour, migration paths, scanning and test failures while contributing to the project.</p><a href="https://github.com/valkey-io/valkey" target="_blank" rel="noopener noreferrer">Valkey source ↗</a></article>
+<article class="op"><small>Target / 02</small><h3>PostgreSQL internals</h3><p>Building a mental model of backend startup, buffers, locks, MVCC, WAL and recovery.</p><a href="https://github.com/postgres/postgres" target="_blank" rel="noopener noreferrer">PostgreSQL source ↗</a></article>
+<article class="op"><small>Target / 03</small><h3>Systems fundamentals</h3><p>Reading about operating systems, storage, networking and concurrency, then testing ideas in small implementations.</p><a href="https://github.com/lightsigma96" target="_blank" rel="noopener noreferrer">Other experiments ↗</a></article>
+</div></section>
+<section id="writing"><div class="heading"><div><div class="index">03 / Field notes</div><h2>Things I've written</h2></div><p class="note">Writeups from building, debugging and learning in public.</p></div><div class="writings">
+<a class="writing" href="https://dev.to/yash_jadhav_cf439de0c2991/how-i-built-a-sql-server-from-scratch-2fm" target="_blank" rel="noopener noreferrer">How I built a SQL server from scratch <span>↗</span></a>
+<a class="writing" href="https://dev.to/yash_jadhav_cf439de0c2991/implementing-multi-level-feedback-queue-in-xv6-3i99" target="_blank" rel="noopener noreferrer">Implementing MLFQ in xv6 <span>↗</span></a>
+<a class="writing" href="https://dev.to/yash_jadhav_cf439de0c2991/recall-an-ai-mystery-game-built-with-cognee-and-ollama-c7j" target="_blank" rel="noopener noreferrer">Recall — an AI mystery game <span>↗</span></a>
+<a class="writing" href="https://medium.com/@8f34yashjadhav/linear-regression-a49edff49898" target="_blank" rel="noopener noreferrer">Implementing linear regression <span>↗</span></a>
+<a class="writing" href="https://medium.com/@8f34yashjadhav/training-an-rl-agent-to-play-my-browser-based-geometry-dash-clone-dbc0845f80cf" target="_blank" rel="noopener noreferrer">Training an RL agent to play Geometry Dash <span>↗</span></a>
+<a class="writing" href="https://lightsigma96.github.io/blogs" target="_blank" rel="noopener noreferrer">View all field notes <span>↗</span></a>
+</div></section>
+<section id="about"><div class="heading"><div><div class="index">04 / Operating principles</div><h2>Why systems?</h2></div></div><div class="about"><div class="about-label">Curiosity-driven engineering</div><div class="about-copy"><p>I enjoy working close to the machine: memory, files, processes, networks, concurrency and the trade-offs that appear when these pieces meet.</p><p>My favourite way to learn is to build a smaller version, read production code, follow a bug to its cause, and write down what I find.</p><p>Currently a student, steadily moving from toy implementations toward meaningful open-source work.</p></div></div></section>
+</main><footer><span>LIGHTSIGMA96 <span class="redtext">//</span> End of transmission</span><span>Built with HTML, CSS, and <a href="https://github.com/lightsigma96" target="_blank" rel="noopener noreferrer">curiosity</a>.</span></footer>
+</div></body></html>
