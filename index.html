@@ -7,8 +7,8 @@
 <meta name="description" content="Yash Jadhav — systems programming, databases, and open source.">
 <title>lightsigma96</title>
 <style>
-/* Change this font-family name to the exact family name installed on your system. */
-:root{--black:#050505;--white:#f4f4f4;--grey:#a8a8a8;--blood:#8f0000;--line:#292929;--font:"Doom", "Doom 2016", "DooM", monospace;--body-font:"IBM Plex Mono","SFMono-Regular",Consolas,monospace}
+/* The Doom/blackletter font is used for the display type. */
+:root{--black:#080808;--white:#f2f0eb;--grey:#aaa7a1;--blood:#a00000;--line:#383532;--font:"Doom","Doom 2016","DooM",serif;--body-font:"IBM Plex Mono","SFMono-Regular",Consolas,monospace}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:1.5rem}
 body{margin:0;background:var(--black);color:var(--white);font-family:var(--body-font);line-height:1.65}
@@ -18,40 +18,43 @@ a:focus-visible{outline:1px solid var(--white);outline-offset:4px}
 ::selection{background:var(--blood);color:#fff}
 .wrap{width:min(900px,calc(100% - 40px));margin:auto}
 header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:23px 0;border-bottom:1px solid var(--line)}
-.logo{font-family:var(--font);font-size:clamp(1.2rem,3vw,1.7rem);letter-spacing:.04em;text-transform:uppercase}
+.logo{font-family:var(--font);font-size:1.35rem;letter-spacing:.04em;text-transform:uppercase}
 nav{display:flex;gap:20px;flex-wrap:wrap}
-nav a,.eyebrow,.meta,.section-label,footer{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+nav a,.eyebrow,.meta,.section-label,footer{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase}
 nav a{color:var(--grey)}
-.hero{padding:clamp(70px,12vw,130px) 0 75px;max-width:780px}
-.eyebrow{color:var(--grey)}
-.eyebrow:before{content:"// ";color:var(--blood)}
-h1,h2,h3,.blood-type{font-family:var(--font);font-weight:400;text-transform:uppercase;line-height:1.05}
-h1{font-size:clamp(4rem,12vw,8.5rem);letter-spacing:-.025em;margin:20px 0 25px}
-h1 .blood{color:var(--blood);text-shadow:2px 2px 0 #390000}
-.lead{max-width:640px;color:#c8c8c8;font-size:1rem}
-.hero-links{display:flex;gap:18px;flex-wrap:wrap;margin-top:28px}
-.hero-links a{border-bottom:1px solid var(--blood);padding:4px 0;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em}
+.hero{padding:clamp(72px,13vw,140px) 0 85px;max-width:850px}
+.eyebrow{color:var(--grey);letter-spacing:.2em}
+.eyebrow:before{content:"✦  ";color:var(--blood)}
+h1,h2,h3,.blood-type{font-family:var(--font);font-weight:400;text-transform:uppercase;line-height:.98}
+h1{font-size:clamp(5rem,17vw,11rem);letter-spacing:-.025em;margin:27px 0 12px;text-shadow:2px 2px 0 #300}
+h1 .blood{color:var(--blood);text-shadow:2px 2px 0 #310000}
+.ornament{display:flex;align-items:center;gap:12px;width:min(590px,100%);margin:25px 0 28px;color:var(--grey);font-size:.8rem;letter-spacing:.2em}
+.ornament:before,.ornament:after{content:"";height:1px;background:var(--grey);flex:1}
+.ornament span{color:var(--blood)}
+.lead{max-width:620px;color:#c8c5bf;font-size:.9rem}
+.hero-links{display:flex;gap:22px;flex-wrap:wrap;margin-top:28px}
+.hero-links a{border-bottom:1px solid var(--blood);padding:4px 0;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em}
 section{padding:36px 0 42px;border-top:1px solid var(--line)}
 .section-label{color:var(--grey);margin-bottom:22px}
-.section-label:before{content:"[";color:var(--blood)}.section-label:after{content:"]";color:var(--blood)}
-h2{font-size:clamp(1.8rem,5vw,3rem);margin:0 0 20px}
-h3{font-size:1.4rem;margin:0 0 10px}
+.section-label:before{content:"✦ ";color:var(--blood)}.section-label:after{content:" ✦";color:var(--blood)}
+h2{font-size:clamp(2rem,5vw,3.3rem);margin:0 0 20px}
+h3{font-size:1.45rem;margin:0 0 10px}
 p{margin-top:0}
 .projects{display:grid;grid-template-columns:1fr 1fr;gap:0 34px}
 .project{padding:20px 0;border-top:1px solid var(--line)}
-.project p,.plain-list p{color:var(--grey);font-size:.88rem;margin-bottom:12px}
-.meta{color:var(--grey);font-size:.65rem;margin-bottom:10px}
-.meta:before{content:"* ";color:var(--blood)}
-.project a,.plain-list a{font-size:.8rem}
+.project p,.plain-list p{color:var(--grey);font-size:.85rem;margin-bottom:12px}
+.meta{color:var(--grey);font-size:.63rem;margin-bottom:10px}
+.meta:before{content:"/ ";color:var(--blood)}
+.project a,.plain-list a{font-size:.78rem}
 .plain-list{display:grid;grid-template-columns:1fr 1fr;gap:18px 34px}
 .plain-list article{padding-top:16px;border-top:1px solid var(--line)}
 .writing-list{list-style:none;margin:0;padding:0}
 .writing-list li{padding:12px 0;border-bottom:1px solid var(--line)}
-.writing-list li:before{content:"/ ";color:var(--blood)}
-.about{max-width:680px;color:#c8c8c8}
+.writing-list li:before{content:"† ";color:var(--blood)}
+.about{max-width:680px;color:#c8c5bf}
 .about strong{color:var(--white);font-weight:400;text-decoration:underline;text-decoration-color:var(--blood);text-underline-offset:4px}
-footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:#777;padding:24px 0 35px;border-top:1px solid var(--line);font-size:.65rem}
-@media(max-width:600px){.wrap{width:calc(100% - 30px)}header{align-items:flex-start;flex-direction:column;gap:12px}nav{gap:15px}.hero{padding:70px 0 55px}h1{font-size:clamp(3.5rem,17vw,6rem)}.projects,.plain-list{grid-template-columns:1fr}.project{padding:17px 0}section{padding:30px 0 34px}}
+footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:#777;padding:24px 0 35px;border-top:1px solid var(--line);font-size:.63rem}
+@media(max-width:600px){.wrap{width:calc(100% - 30px)}header{align-items:flex-start;flex-direction:column;gap:12px}nav{gap:15px}.hero{padding:72px 0 58px}h1{font-size:clamp(4rem,19vw,7rem)}.projects,.plain-list{grid-template-columns:1fr}.project{padding:17px 0}section{padding:30px 0 34px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
@@ -63,9 +66,10 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:
 </header>
 <main id="top">
 <div class="hero">
-<div class="eyebrow">Computer science / systems / open source</div>
-<h1>Yash<br><span class="blood">Jadhav.</span></h1>
-<p class="lead">I like understanding how things work underneath the abstractions. Currently focused on database internals, systems programming, networking, and contributing to open-source projects.</p>
+<div class="eyebrow">A portfolio of systems and open source</div>
+<h1>Yash<br><span class="blood">Jadhav</span></h1>
+<div class="ornament"><span>✦</span> EST. IN CODE <span>✦</span></div>
+<p class="lead">Computer science student. Systems programmer. I build things from the ground up and follow bugs into the depths of databases, networks, and open source.</p>
 <div class="hero-links"><a href="#projects">Selected work ↓</a><a href="mailto:yash.jadhav8008@gmail.com">Email ↗</a><a href="https://www.linkedin.com/in/yash-jadhav-ab4872248/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://x.com/yash_jadhav2106" target="_blank" rel="noopener noreferrer">X ↗</a></div>
 </div>
 
